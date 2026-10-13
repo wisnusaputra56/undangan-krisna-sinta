@@ -81,7 +81,7 @@
         </svg>
     </button>
 
-    <!-- Custom Modal Notification (Pengganti alert bawaan browser) -->
+    <!-- Custom Modal Notification -->
     <div id="custom-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="bg-white/95 border border-amber-800/30 rounded-3xl p-6 text-center max-w-sm w-full shadow-2xl relative">
             <div class="w-12 h-12 mx-auto mb-3 text-amber-700">
@@ -95,7 +95,7 @@
         </div>
     </div>
 
-    <!-- Cover Section (Halaman Depan) -->
+    <!-- Cover Section -->
     <section id="cover" class="fixed inset-0 z-50 bg-stone-950 text-stone-100 flex flex-col items-center justify-center p-4 text-center transition-all duration-700">
         <div class="absolute inset-0 z-0 opacity-40">
             <img src="cover.jpg" alt="Cover Wedding" class="w-full h-full object-cover">
@@ -132,7 +132,7 @@
     <!-- Main Content -->
     <div id="main-content" class="opacity-0 transition-opacity duration-1000 relative">
         
-        <!-- BUNGA BATIK MEMENUSI PANEL KIRI & KANAN HALAMAN -->
+        <!-- BUNGA BATIK KIRI & KANAN -->
         <div class="fixed inset-y-0 left-0 w-24 md:w-48 flower-side-left pointer-events-none z-20 opacity-30"></div>
         <div class="fixed inset-y-0 right-0 w-24 md:w-48 flower-side-right pointer-events-none z-20 opacity-30"></div>
 
@@ -363,16 +363,13 @@
                         <label class="block text-xs font-semibold text-stone-700 mb-1">Pesan & Doa Restu</label>
                         <textarea id="rsvp-message" rows="3" required placeholder="Tuliskan ucapan & doa restu Anda..." class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-xs focus:ring-2 focus:ring-amber-500 outline-none"></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-stone-900 text-amber-100 py-3 rounded-xl font-medium text-xs hover:bg-stone-800 transition">Kirim Konfirmasi</button>
+                    <button type="submit" id="submit-btn" class="w-full bg-stone-900 text-amber-100 py-3 rounded-xl font-medium text-xs hover:bg-stone-800 transition">Kirim Konfirmasi</button>
                 </form>
 
                 <div class="mt-10 pt-6 border-t border-stone-200">
                     <h3 class="font-serif text-lg font-bold text-stone-900 mb-4 text-center">Ucapan Doa Restu</h3>
                     <div id="wishes-list" class="space-y-3 max-h-60 overflow-y-auto pr-1">
-                        <div class="bg-stone-50 p-3 rounded-xl border border-stone-200">
-                            <p class="font-bold text-xs text-stone-900">Bpk. Made & Keluarga <span class="font-normal text-[10px] text-green-700 bg-green-100 px-2 py-0.5 rounded-full ml-2">Hadir</span></p>
-                            <p class="text-xs text-stone-600 italic mt-1">"Selamat atas pernikahan Krisna & Sinta. Semoga senantiasa diberikan kebahagiaan dan keharmonisan rumah tangga."</p>
-                        </div>
+                        <p class="text-center text-xs text-stone-400 py-4">Memuat ucapan...</p>
                     </div>
                 </div>
             </div>
@@ -440,8 +437,11 @@
         </footer>
     </div>
 
-    <!-- SCRIPT JAVASCRIPT YANG SUDAH DIPERBAIKI -->
+    <!-- SCRIPT JAVASCRIPT GOOGLE SHEETS INTEGRATION -->
     <script>
+        // URL WEB APP GOOGLE APPS SCRIPT
+        const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz9oxXTAlEhz_JGnrH9zzOcSmb53t9AJOa6y8JAo-Ngywo-P50u9Dll0Lg77HSGolg/exec';
+
         document.addEventListener("DOMContentLoaded", function() {
             // Read URL Parameter for Guest Name
             const urlParams = new URLSearchParams(window.location.search);
@@ -453,6 +453,9 @@
                 if (guestElem) guestElem.innerText = decodedName;
                 if (rsvpElem) rsvpElem.value = decodedName;
             }
+
+            // Load existing wishes from Google Sheets
+            fetchWishes();
         });
 
         var music = document.getElementById('bg-music');
@@ -526,31 +529,102 @@
             }
         }
 
+        // Fetch wishes from Google Sheet
+        function fetchWishes() {
+            fetch(WEB_APP_URL)
+                .then(response => response.json())
+                .then(data => {
+                    var list = document.getElementById('wishes-list');
+                    if (!list) return;
+                    
+                    if (!data || data.length === 0) {
+                        list.innerHTML = '<p class="text-center text-xs text-stone-400 py-4">Belum ada ucapan. Jadilah yang pertama memberikan doa!</p>';
+                        return;
+                    }
+
+                    list.innerHTML = '';
+                    data.forEach(item => {
+                        var newWish = document.createElement('div');
+                        newWish.className = "bg-stone-50 p-3 rounded-xl border border-stone-200";
+                        
+                        var statusColor = item.status === 'Hadir' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700';
+
+                        newWish.innerHTML = '<p class="font-bold text-xs text-stone-900">' + escapeHtml(item.name) + ' <span class="font-normal text-[10px] ' + statusColor + ' px-2 py-0.5 rounded-full ml-2">' + escapeHtml(item.status) + '</span></p>' +
+                            '<p class="text-xs text-stone-600 italic mt-1">"' + escapeHtml(item.message) + '"</p>';
+
+                        list.appendChild(newWish);
+                    });
+                })
+                .catch(err => {
+                    console.error("Gagal memuat ucapan:", err);
+                    var list = document.getElementById('wishes-list');
+                    if (list) list.innerHTML = '<p class="text-center text-xs text-stone-400 py-4">Belum ada ucapan.</p>';
+                });
+        }
+
+        // Submit RSVP to Google Sheet
         function submitRSVP(e) {
             e.preventDefault();
+
             var nameElem = document.getElementById('rsvp-name');
             var statusElem = document.getElementById('rsvp-status');
+            var countElem = document.getElementById('rsvp-count');
             var msgElem = document.getElementById('rsvp-message');
+            var submitBtn = document.getElementById('submit-btn');
 
-            var name = nameElem ? nameElem.value : '';
-            var status = statusElem ? statusElem.value : 'Hadir';
-            var msg = msgElem ? msgElem.value : '';
+            var formData = {
+                name: nameElem ? nameElem.value : '',
+                status: statusElem ? statusElem.value : 'Hadir',
+                count: countElem ? countElem.value : '1 Orang',
+                message: msgElem ? msgElem.value : ''
+            };
 
-            var list = document.getElementById('wishes-list');
-            if (list) {
-                var newWish = document.createElement('div');
-                newWish.className = "bg-stone-50 p-3 rounded-xl border border-stone-200";
-                
-                var statusColor = status === 'Hadir' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700';
-
-                newWish.innerHTML = '<p class="font-bold text-xs text-stone-900">' + name + ' <span class="font-normal text-[10px] ' + statusColor + ' px-2 py-0.5 rounded-full ml-2">' + status + '</span></p>' +
-                    '<p class="text-xs text-stone-600 italic mt-1">"' + msg + '"</p>';
-
-                list.prepend(newWish);
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerText = "Mengirim...";
             }
 
-            if (msgElem) msgElem.value = '';
-            showCustomModal("Terima kasih atas konfirmasi dan doa restu Anda!");
+            fetch(WEB_APP_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(() => {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = "Kirim Konfirmasi";
+                }
+
+                if (msgElem) msgElem.value = '';
+                showCustomModal("Terima kasih atas konfirmasi dan doa restu Anda!");
+                
+                // Refresh daftar ucapan setelah 1.5 detik
+                setTimeout(fetchWishes, 1500);
+            })
+            .catch(err => {
+                console.error("Error:", err);
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = "Kirim Konfirmasi";
+                }
+                showCustomModal("Terjadi kesalahan saat mengirim data. Silakan coba lagi.");
+            });
+        }
+
+        // Helper untuk keamanan teks
+        function escapeHtml(text) {
+            if (!text) return '';
+            var map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return String(text).replace(/[&<>"']/g, function(m) { return map[m]; });
         }
     </script>
 </body>
