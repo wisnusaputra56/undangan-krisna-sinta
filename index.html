@@ -442,12 +442,11 @@
         </footer>
     </div>
 
-    <!-- SCRIPT JAVASCRIPT GOOGLE SHEETS INTEGRATION & AUDIO TIME SKIP -->
+    <!-- SCRIPT JAVASCRIPT -->
     <script>
         const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbz9oxXTAlEhz_JGnrH9zzOcSmb53t9AJOa6y8JAo-Ngywo-P50u9Dll0Lg77HSGolg/exec';
 
         document.addEventListener("DOMContentLoaded", function() {
-            // Read URL Parameter for Guest Name
             const urlParams = new URLSearchParams(window.location.search);
             const guest = urlParams.get('to');
             if (guest) {
@@ -457,8 +456,6 @@
                 if (guestElem) guestElem.innerText = decodedName;
                 if (rsvpElem) rsvpElem.value = decodedName;
             }
-
-            // Load existing wishes
             fetchWishes();
         });
 
@@ -467,7 +464,6 @@
         var isPlaying = false;
 
         function openInvitation() {
-            // SKIP KE DETIK KE-5 UNTUK MEMOTONG INTRO AUDIO HENING
             if (music) {
                 music.currentTime = 5; 
                 music.play().then(function() {
@@ -535,7 +531,6 @@
             }
         }
 
-        // Fetch wishes (Secure textContent method)
         function fetchWishes() {
             fetch(WEB_APP_URL)
                 .then(response => response.json())
@@ -579,7 +574,6 @@
                 });
         }
 
-        // Submit RSVP
         function submitRSVP(e) {
             e.preventDefault();
 
