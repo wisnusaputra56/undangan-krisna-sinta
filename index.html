@@ -11,6 +11,16 @@
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
+        
+        /* Aksen Motif Tradisional Jawa & Bali yang Elegan pada Background */
+        .cultural-pattern {
+            background-color: #FAF7F2;
+            background-image: radial-gradient(#d4af37 0.5px, transparent 0.5px), radial-gradient(#d4af37 0.5px, #FAF7F2 0.5px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+            background-opacity: 0.05;
+        }
+
         @keyframes spin-slow {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -20,11 +30,11 @@
         }
     </style>
 </head>
-<body class="bg-[#FAF7F2] text-stone-800 antialiased selection:bg-amber-200">
+<body class="cultural-pattern text-stone-800 antialiased selection:bg-amber-200">
 
-    <!-- Audio Background Music (Dengan Preload & Sumber Musik Romantis Mentah) -->
+    <!-- Audio Background Music (Sesuai nama file di GitHub: Kabagyan.mp3) -->
     <audio id="bg-music" loop preload="auto">
-        <source src="kabagyan.mp3" type="audio/mpeg">
+        <source src="Kabagyan.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Floating Music Button -->
@@ -42,19 +52,19 @@
             <div class="absolute inset-0 bg-stone-900/60"></div>
         </div>
 
-        <div class="relative z-10 flex flex-col items-center">
-            <p class="text-xs tracking-[0.25em] uppercase text-amber-300 mb-3">Om Swastyastu</p>
+        <div class="relative z-10 flex flex-col items-center max-w-lg mx-auto">
+            <span class="text-xs tracking-[0.3em] uppercase text-amber-300 mb-3 border-b border-amber-300/30 pb-1">Om Swastyastu</span>
             <p class="text-xs tracking-widest uppercase text-stone-300 mb-2">Upacara Manusa Yadnya Pawiwahan</p>
             <h1 class="font-serif text-4xl md:text-6xl mb-4 text-amber-100">Krisna & Sinta</h1>
             
-            <div class="w-16 h-[1px] bg-amber-300/40 my-4"></div>
+            <div class="w-20 h-[1px] bg-amber-300/50 my-4"></div>
 
             <p class="text-stone-300 text-sm mb-3">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-            <div id="guest-name" class="bg-stone-800/80 border border-stone-700 px-6 py-2.5 rounded-full text-base font-medium mb-8 text-amber-200 shadow-inner max-w-xs truncate backdrop-blur-sm">
+            <div id="guest-name" class="bg-stone-800/80 border border-stone-600 px-6 py-2.5 rounded-full text-base font-medium mb-8 text-amber-200 shadow-inner max-w-xs truncate backdrop-blur-sm">
                 Tamu Undangan
             </div>
             
-            <button onclick="openInvitation()" class="bg-amber-200 text-stone-900 px-8 py-3 rounded-full font-medium hover:bg-amber-300 transition-all shadow-lg transform hover:-translate-y-0.5">
+            <button onclick="openInvitation()" class="bg-amber-200 text-stone-900 px-8 py-3 rounded-full font-medium hover:bg-amber-300 transition-all shadow-lg transform hover:-translate-y-0.5 cursor-pointer">
                 Buka Undangan
             </button>
         </div>
@@ -64,39 +74,41 @@
     <div id="main-content" class="opacity-0 transition-opacity duration-1000">
         
         <!-- Hero Section & Couple Profile -->
-        <header class="min-h-screen flex flex-col items-center justify-center text-center p-6 bg-gradient-to-b from-stone-200 to-[#FAF7F2]">
-            <p class="tracking-[0.2em] text-xs uppercase text-stone-600 mb-3">Om Swastyastu</p>
-            <p class="text-sm text-stone-700 max-w-xl mx-auto mb-8 leading-relaxed px-4">
-                Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa/Tuhan Yang Maha Esa, kami bermaksud menyelenggarakan Upacara Wiwaha Samskara (Pernikahan) serta Resepsi Pernikahan putra-putri kami:
+        <header class="min-h-screen flex flex-col items-center justify-center text-center p-6 bg-gradient-to-b from-stone-200/50 to-transparent relative">
+            <div class="absolute top-10 w-24 h-[1px] bg-amber-700/30"></div>
+            <p class="tracking-[0.25em] text-xs uppercase text-stone-600 mb-3 font-semibold">Om Swastyastu</p>
+            <p class="text-sm text-stone-700 max-w-xl mx-auto mb-12 leading-relaxed px-4">
+                Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa / Tuhan Yang Maha Esa, kami bermaksud menyelenggarakan Upacara Wiwaha Samskara (Pernikahan) serta Resepsi Pernikahan putra-putri kami:
             </p>
             
-            <!-- Foto Mempelai Pria -->
-            <div class="mb-6">
-                <div class="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-amber-200 shadow-md">
-                    <img src="pria.jpg" alt="Krisna" class="w-full h-full object-cover">
+            <div class="grid md:grid-cols-2 gap-10 max-w-3xl w-full items-center">
+                <!-- Foto Mempelai Pria -->
+                <div class="flex flex-col items-center">
+                    <div class="w-36 h-36 md:w-44 md:h-44 mx-auto mb-4 rounded-full overflow-hidden border-2 border-amber-600/50 p-1 shadow-md bg-white">
+                        <img src="pria.jpg" alt="Krisna" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <h2 class="font-serif text-2xl md:text-3xl text-stone-900 font-bold mb-1">Ns. I Putu Krisna Widya Nugraha, S.Kep</h2>
+                    <p class="text-xs text-amber-800 uppercase tracking-widest mb-1 font-medium">Putra Pertama</p>
+                    <p class="text-stone-600 text-xs">Bapak I Made Ardana & Ibu Ari Trisusanti</p>
                 </div>
-                <h2 class="font-serif text-2xl md:text-3xl text-stone-900 font-bold mb-1">Ns. I Putu Krisna Widya Nugraha, S.Kep</h2>
-                <p class="text-xs text-stone-500 uppercase tracking-wider mb-1">Putra Pertama dari</p>
-                <p class="text-stone-700 text-sm">Bapak I Made Ardana & Ibu Ari Trisusanti</p>
-            </div>
 
-            <div class="font-serif text-3xl text-amber-700 my-4 italic">&</div>
-
-            <!-- Foto Mempelai Wanita -->
-            <div class="mt-2 mb-6">
-                <div class="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-amber-200 shadow-md">
-                    <img src="wanita.jpg" alt="Sinta" class="w-full h-full object-cover">
+                <!-- Foto Mempelai Wanita -->
+                <div class="flex flex-col items-center">
+                    <div class="w-36 h-36 md:w-44 md:h-44 mx-auto mb-4 rounded-full overflow-hidden border-2 border-amber-600/50 p-1 shadow-md bg-white">
+                        <img src="wanita.jpg" alt="Sinta" class="w-full h-full object-cover rounded-full">
+                    </div>
+                    <h2 class="font-serif text-2xl md:text-3xl text-stone-900 font-bold mb-1">Sinta Dewi Wulandari, S.Pd</h2>
+                    <p class="text-xs text-amber-800 uppercase tracking-widest mb-1 font-medium">Putri Kedua</p>
+                    <p class="text-stone-600 text-xs">Bapak Supadi & Ibu Lasmi</p>
                 </div>
-                <h2 class="font-serif text-2xl md:text-3xl text-stone-900 font-bold mb-1">Sinta Dewi Wulandari, S.Pd</h2>
-                <p class="text-xs text-stone-500 uppercase tracking-wider mb-1">Putri Kedua dari</p>
-                <p class="text-stone-700 text-sm">Bapak Supadi & Ibu Lasmi</p>
             </div>
         </header>
 
         <!-- Rigveda Quote Section -->
         <section class="py-16 px-6 max-w-2xl mx-auto text-center">
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-stone-200 relative">
-                <p class="font-serif italic text-stone-800 text-lg mb-4 leading-relaxed">
+            <div class="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-sm border border-stone-200 relative">
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-amber-100 text-amber-900 px-4 py-0.5 rounded-full text-[10px] tracking-widest uppercase font-semibold border border-amber-300">Kitab Suci</div>
+                <p class="font-serif italic text-stone-800 text-lg mb-4 leading-relaxed mt-2">
                     "Ihaiva stam mā vi yaustam,<br>
                     Visvām āyur vyasnutam.<br>
                     Krindantau putrair naptrbhih,<br>
@@ -109,19 +121,20 @@
             </div>
         </section>
 
-        <!-- Rangkaian Acara Section dengan Maps Asli -->
+        <!-- Rangkaian Acara Section -->
         <section class="py-12 px-6 max-w-5xl mx-auto">
-            <h2 class="font-serif text-3xl text-center mb-12 text-stone-900">Rangkaian Acara</h2>
+            <h2 class="font-serif text-3xl text-center mb-3 text-stone-900">Rangkaian Acara</h2>
+            <div class="w-16 h-[2px] bg-amber-600 mx-auto mb-10"></div>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Acara 1: Wiwaha Samskara -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 flex flex-col justify-between">
+                <!-- Acara 1 -->
+                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-stone-200 flex flex-col justify-between hover:shadow-md transition">
                     <div>
                         <span class="inline-block bg-amber-100 text-amber-900 text-xs px-3 py-1 rounded-full font-medium mb-3">Acara 1</span>
                         <h3 class="font-serif text-xl font-bold mb-2 text-stone-900">Wiwaha Samskara</h3>
-                        <p class="text-stone-600 text-xs font-semibold mb-1">Minggu, 22 November 2026</p>
+                        <p class="text-stone-700 text-xs font-semibold mb-1">Minggu, 22 November 2026</p>
                         <p class="text-stone-500 text-xs mb-4">Pukul 13.00 – 16.00 WIB</p>
-                        <p class="text-stone-700 text-xs leading-relaxed mb-4">
+                        <p class="text-stone-600 text-xs leading-relaxed mb-4">
                             <strong>Lokasi:</strong> Kediaman Mempelai Wanita<br>
                             Jengglengan RT.017/RW.000, Kelurahan Tlogotirto, Kecamatan Sumberlawang, Kabupaten Sragen, Jawa Tengah.
                         </p>
@@ -131,14 +144,14 @@
                     </a>
                 </div>
 
-                <!-- Acara 2: Resepsi Pernikahan -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 flex flex-col justify-between">
+                <!-- Acara 2 -->
+                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-stone-200 flex flex-col justify-between hover:shadow-md transition">
                     <div>
                         <span class="inline-block bg-amber-100 text-amber-900 text-xs px-3 py-1 rounded-full font-medium mb-3">Acara 2</span>
                         <h3 class="font-serif text-xl font-bold mb-2 text-stone-900">Resepsi Pernikahan</h3>
-                        <p class="text-stone-600 text-xs font-semibold mb-1">Senin, 23 November 2026</p>
+                        <p class="text-stone-700 text-xs font-semibold mb-1">Senin, 23 November 2026</p>
                         <p class="text-stone-500 text-xs mb-4">Pukul 08.00 WIB – Selesai</p>
-                        <p class="text-stone-700 text-xs leading-relaxed mb-4">
+                        <p class="text-stone-600 text-xs leading-relaxed mb-4">
                             <strong>Lokasi:</strong> Kediaman Mempelai Wanita<br>
                             Jengglengan RT.017/RW.000, Kelurahan Tlogotirto, Kecamatan Sumberlawang, Kabupaten Sragen, Jawa Tengah.
                         </p>
@@ -148,14 +161,14 @@
                     </a>
                 </div>
 
-                <!-- Acara 3: Ngunduh Mantu -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-stone-200 flex flex-col justify-between">
+                <!-- Acara 3 -->
+                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl shadow-sm border border-stone-200 flex flex-col justify-between hover:shadow-md transition">
                     <div>
                         <span class="inline-block bg-amber-100 text-amber-900 text-xs px-3 py-1 rounded-full font-medium mb-3">Acara 3</span>
                         <h3 class="font-serif text-xl font-bold mb-2 text-stone-900">Ngunduh Mantu</h3>
-                        <p class="text-stone-600 text-xs font-semibold mb-1">Sabtu, 28 November 2026</p>
+                        <p class="text-stone-700 text-xs font-semibold mb-1">Sabtu, 28 November 2026</p>
                         <p class="text-stone-500 text-xs mb-4">Pukul 13.00 – 17.00 WIB</p>
-                        <p class="text-stone-700 text-xs leading-relaxed mb-4">
+                        <p class="text-stone-600 text-xs leading-relaxed mb-4">
                             <strong>Lokasi:</strong> Gedung Serba Guna Yayasan Sosial Gotong Royong Ambarawa<br>
                             Jl. Brigjend Sudiarto No.78, Pandean, Lodoyong, Kec. Ambarawa, Kabupaten Semarang.
                         </p>
@@ -169,26 +182,27 @@
 
         <!-- Galeri Foto Section -->
         <section class="py-16 px-6 max-w-4xl mx-auto">
-            <h2 class="font-serif text-3xl text-center mb-4 text-stone-900">Galeri Foto</h2>
+            <h2 class="font-serif text-3xl text-center mb-3 text-stone-900">Galeri Foto</h2>
+            <div class="w-16 h-[2px] bg-amber-600 mx-auto mb-2"></div>
             <p class="text-center text-stone-600 text-sm mb-10">Momen kebahagiaan perjalanan cinta kami</p>
             
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200">
+                <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200 bg-white">
                     <img src="g14.jpg" alt="Galeri 1" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
-                <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200">
+                <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200 bg-white">
                     <img src="g25.jpg" alt="Galeri 2" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
-                <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200">
+                <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200 bg-white">
                     <img src="g4.jpg" alt="Galeri 3" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
-                <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200">
+                <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200 bg-white">
                     <img src="g6.jpg" alt="Galeri 4" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
-                <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200">
+                <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200 bg-white">
                     <img src="g71.jpg" alt="Galeri 5" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
-                <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200">
+                <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200 bg-white">
                     <img src="g84.jpg" alt="Galeri 6" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
             </div>
@@ -231,17 +245,20 @@
             const cover = document.getElementById('cover');
             const main = document.getElementById('main-content');
             
+            // 1. Buka penutup undangan dengan transisi halus
             cover.classList.add('opacity-0', 'pointer-events-none');
             main.classList.remove('opacity-0');
             window.scrollTo(0, 0);
 
-            // Putar Musik Otomatis saat Buka Undangan diklik
+            // 2. Putar musik lokal (Kabagyan.mp3)
             music.play().then(() => {
                 isPlaying = true;
                 musicBtn.classList.remove('hidden');
                 musicBtn.classList.add('flex');
             }).catch(error => {
-                console.log("Autoplay ditolak oleh browser:", error);
+                console.log("Autoplay diblokir browser, memunculkan tombol kontrol:", error);
+                musicBtn.classList.remove('hidden');
+                musicBtn.classList.add('flex');
             });
         }
 
@@ -251,9 +268,12 @@
                 isPlaying = false;
                 document.getElementById('music-icon').classList.remove('animate-spin-slow');
             } else {
-                music.play();
-                isPlaying = true;
-                document.getElementById('music-icon').classList.add('animate-spin-slow');
+                music.play().then(() => {
+                    isPlaying = true;
+                    document.getElementById('music-icon').classList.add('animate-spin-slow');
+                }).catch(err => {
+                    console.log("Gagal memutar musik:", err);
+                });
             }
         }
     </script>
