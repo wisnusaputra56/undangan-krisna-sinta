@@ -22,7 +22,7 @@
 </head>
 <body class="bg-[#FAF7F2] text-stone-800 antialiased selection:bg-amber-200">
 
-    <!-- Audio Background Music (Siap Pakai) -->
+    <!-- Audio Background Music -->
     <audio id="bg-music" loop>
         <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-aser-433.mp3" type="audio/mpeg">
     </audio>
@@ -38,7 +38,7 @@
     <section id="cover" class="fixed inset-0 z-50 bg-stone-900 text-stone-100 flex flex-col items-center justify-center p-6 text-center transition-all duration-700">
         <!-- Background Foto Cover -->
         <div class="absolute inset-0 z-0">
-            <img src="assets/cover.jpg" alt="Cover Wedding" class="w-full h-full object-cover opacity-40">
+            <img src="cover.jpg" alt="Cover Wedding" class="w-full h-full object-cover opacity-40">
             <div class="absolute inset-0 bg-stone-900/60"></div>
         </div>
 
@@ -73,7 +73,7 @@
             <!-- Foto Mempelai Pria -->
             <div class="mb-6">
                 <div class="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-amber-200 shadow-md">
-                    <img src="assets/pria.jpg" alt="Krisna" class="w-full h-full object-cover">
+                    <img src="pria.jpg" alt="Krisna" class="w-full h-full object-cover">
                 </div>
                 <h2 class="font-serif text-2xl md:text-3xl text-stone-900 font-bold mb-1">Ns. I Putu Krisna Widya Nugraha, S.Kep</h2>
                 <p class="text-xs text-stone-500 uppercase tracking-wider mb-1">Putra Pertama dari</p>
@@ -85,7 +85,7 @@
             <!-- Foto Mempelai Wanita -->
             <div class="mt-2 mb-6">
                 <div class="w-32 h-32 md:w-40 md:h-40 mx-auto mb-4 rounded-full overflow-hidden border-4 border-amber-200 shadow-md">
-                    <img src="assets/wanita.jpg" alt="Sinta" class="w-full h-full object-cover">
+                    <img src="wanita.jpg" alt="Sinta" class="w-full h-full object-cover">
                 </div>
                 <h2 class="font-serif text-2xl md:text-3xl text-stone-900 font-bold mb-1">Sinta Dewi Wulandari, S.Pd</h2>
                 <p class="text-xs text-stone-500 uppercase tracking-wider mb-1">Putri Kedua dari</p>
@@ -174,22 +174,22 @@
             
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200">
-                    <img src="assets/g1.jpg" alt="Galeri 1" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <img src="g14.jpg" alt="Galeri 1" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
                 <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200">
-                    <img src="assets/g2.jpg" alt="Galeri 2" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <img src="g25.jpg" alt="Galeri 2" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
                 <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200">
-                    <img src="assets/g3.jpg" alt="Galeri 3" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <img src="g4.jpg" alt="Galeri 3" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
                 <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200">
-                    <img src="assets/g4.jpg" alt="Galeri 4" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <img src="g6.jpg" alt="Galeri 4" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
                 <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200">
-                    <img src="assets/g5.jpg" alt="Galeri 5" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <img src="g71.jpg" alt="Galeri 5" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
                 <div class="aspect-square rounded-2xl overflow-hidden shadow-sm border border-stone-200">
-                    <img src="assets/g6.jpg" alt="Galeri 6" class="w-full h-full object-cover hover:scale-105 transition duration-500">
+                    <img src="g84.jpg" alt="Galeri 6" class="w-full h-full object-cover hover:scale-105 transition duration-500">
                 </div>
             </div>
         </section>
@@ -235,7 +235,7 @@
             main.classList.remove('opacity-0');
             window.scrollTo(0, 0);
 
-            // Putar Musik Otomatis saat undangan dibuka
+            // Musik langsung berputar secara otomatis saat tombol buka undangan diklik
             music.play().then(() => {
                 isPlaying = true;
                 musicBtn.classList.remove('hidden');
