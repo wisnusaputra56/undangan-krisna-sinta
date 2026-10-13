@@ -235,7 +235,7 @@
             main.classList.remove('opacity-0');
             window.scrollTo(0, 0);
 
-            // Musik langsung berputar secara otomatis saat tombol buka undangan diklik
+            // Musik otomatis berputar saat undangan dibuka
             music.play().then(() => {
                 isPlaying = true;
                 musicBtn.classList.remove('hidden');
@@ -246,7 +246,7 @@
         }
 
         function toggleMusic() {
-            if (isPlaying) {
+            if, (isPlaying) {
                 music.pause();
                 isPlaying = false;
                 document.getElementById('music-icon').classList.remove('animate-spin-slow');
