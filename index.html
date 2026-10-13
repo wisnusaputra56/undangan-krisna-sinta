@@ -22,9 +22,9 @@
 </head>
 <body class="bg-[#FAF7F2] text-stone-800 antialiased selection:bg-amber-200">
 
-    <!-- Audio Background Music -->
-    <audio id="bg-music" loop>
-        <source src="https://assets.mixkit.co/music/preview/mixkit-romantic-aser-433.mp3" type="audio/mpeg">
+    <!-- Audio Background Music (Dengan Preload & Sumber Musik Romantis Mentah) -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-wedding-113549.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Floating Music Button -->
@@ -235,18 +235,18 @@
             main.classList.remove('opacity-0');
             window.scrollTo(0, 0);
 
-            // Musik otomatis berputar saat undangan dibuka
+            // Putar Musik Otomatis saat Buka Undangan diklik
             music.play().then(() => {
                 isPlaying = true;
                 musicBtn.classList.remove('hidden');
                 musicBtn.classList.add('flex');
             }).catch(error => {
-                console.log("Autoplay dicegah oleh browser:", error);
+                console.log("Autoplay ditolak oleh browser:", error);
             });
         }
 
         function toggleMusic() {
-            if, (isPlaying) {
+            if (isPlaying) {
                 music.pause();
                 isPlaying = false;
                 document.getElementById('music-icon').classList.remove('animate-spin-slow');
