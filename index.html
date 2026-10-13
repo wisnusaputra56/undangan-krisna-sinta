@@ -123,7 +123,7 @@
                 Tamu Undangan
             </div>
             
-            <button onclick="openInvitation()" class="bg-gradient-to-r from-amber-200 via-amber-300 to-amber-200 text-stone-950 px-8 py-3 rounded-full font-semibold hover:brightness-110 transition-all shadow-xl transform hover:-translate-y-0.5 cursor-pointer text-sm tracking-wide">
+            <button type="button" onclick="openInvitation()" class="bg-gradient-to-r from-amber-200 via-amber-300 to-amber-200 text-stone-950 px-8 py-3 rounded-full font-semibold hover:brightness-110 transition-all shadow-xl transform hover:-translate-y-0.5 cursor-pointer text-sm tracking-wide">
                 Buka Undangan
             </button>
         </div>
@@ -391,4 +391,167 @@
 
                 <!-- Card Rekening -->
                 <div class="bg-gradient-to-br from-stone-900 to-stone-800 text-amber-100 p-6 rounded-2xl text-left relative overflow-hidden shadow-lg border border-amber-500/20">
-                    <p class
+                    <p class="text-[10px] tracking-widest uppercase text-amber-400/80 mb-2 font-semibold">Bank Mandiri</p>
+                    <p id="rekening-num" class="font-mono text-xl tracking-wider font-bold mb-1 text-white">1570007413926</p>
+                    <p class="text-xs text-stone-300 font-medium mb-4">a.n. I Putu Krisna Widya</p>
+                    
+                    <button type="button" onclick="copyRekening()" class="bg-amber-200 text-stone-950 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-amber-300 transition flex items-center gap-2 cursor-pointer">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                        <span id="copy-text">Salin Nomor Rekening</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="py-16 px-6 text-center bg-stone-950 text-stone-300 mt-12 relative overflow-hidden border-t-2 border-amber-600/40 z-10">
+            
+            <div class="w-full max-w-sm mx-auto mb-6">
+                <img src="wayang.png" alt="Ukiran Wayang Emas" class="w-full h-auto blend-screen opacity-90 mx-auto filter drop-shadow-[0_4px_12px_rgba(217,119,6,0.3)]">
+            </div>
+
+            <p class="max-w-xl mx-auto text-sm leading-relaxed mb-6">
+                Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kedua mempelai. Atas kehadiran dan doa restunya, kami ucapkan terima kasih.
+            </p>
+            
+            <p class="text-amber-300 font-semibold tracking-wider text-sm mb-8">Om Shanti Shanti Shanti Om</p>
+
+            <div class="w-full max-w-xs mx-auto my-6 flex items-center justify-center gap-2 text-amber-500/40">
+                <div class="h-[1px] bg-amber-500/30 flex-1"></div>
+                <div class="w-2 h-2 rotate-45 border border-amber-400"></div>
+                <div class="h-[1px] bg-amber-500/30 flex-1"></div>
+            </div>
+
+            <p class="text-xs text-stone-400 uppercase tracking-widest mb-4">Kami yang berbahagia,</p>
+            <div class="space-y-4 text-sm mb-8">
+                <div>
+                    <p class="font-semibold text-amber-200">Kel. Bapak I Made Ardana & Ibu Ari Trisusanti</p>
+                    <p class="text-xs text-stone-400">(Orang Tua Mempelai Pria)</p>
+                </div>
+                <div>
+                    <p class="font-semibold text-amber-200">Kel. Bapak Supadi & Ibu Lasmi</p>
+                    <p class="text-xs text-stone-400">(Orang Tua Mempelai Wanita)</p>
+                </div>
+            </div>
+
+            <div class="pt-6 border-t border-stone-800 text-[10px] text-stone-500 tracking-wider">
+                The Wedding of Krisna & Sinta
+            </div>
+        </footer>
+    </div>
+
+    <!-- SCRIPT JAVASCRIPT YANG SUDAH DIPERBAIKI -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Read URL Parameter for Guest Name
+            const urlParams = new URLSearchParams(window.location.search);
+            const guest = urlParams.get('to');
+            if (guest) {
+                const decodedName = decodeURIComponent(guest).replace(/-/g, ' ');
+                const guestElem = document.getElementById('guest-name');
+                const rsvpElem = document.getElementById('rsvp-name');
+                if (guestElem) guestElem.innerText = decodedName;
+                if (rsvpElem) rsvpElem.value = decodedName;
+            }
+        });
+
+        var music = document.getElementById('bg-music');
+        var musicBtn = document.getElementById('music-btn');
+        var isPlaying = false;
+
+        function openInvitation() {
+            var cover = document.getElementById('cover');
+            var main = document.getElementById('main-content');
+            
+            if (cover) cover.classList.add('opacity-0', 'pointer-events-none');
+            if (main) main.classList.remove('opacity-0');
+            window.scrollTo(0, 0);
+
+            if (music) {
+                music.play().then(function() {
+                    isPlaying = true;
+                    if (musicBtn) {
+                        musicBtn.classList.remove('hidden');
+                        musicBtn.classList.add('flex');
+                    }
+                }).catch(function(error) {
+                    console.log("Autoplay music diblokir:", error);
+                    if (musicBtn) {
+                        musicBtn.classList.remove('hidden');
+                        musicBtn.classList.add('flex');
+                    }
+                });
+            }
+        }
+
+        function toggleMusic() {
+            var icon = document.getElementById('music-icon');
+            if (isPlaying) {
+                if (music) music.pause();
+                isPlaying = false;
+                if (icon) icon.classList.remove('animate-spin-slow');
+            } else {
+                if (music) {
+                    music.play().then(function() {
+                        isPlaying = true;
+                        if (icon) icon.classList.add('animate-spin-slow');
+                    });
+                }
+            }
+        }
+
+        function showCustomModal(msg) {
+            var modal = document.getElementById('custom-modal');
+            var msgElem = document.getElementById('modal-msg');
+            if (msgElem) msgElem.innerText = msg;
+            if (modal) modal.classList.remove('opacity-0', 'pointer-events-none');
+        }
+
+        function closeCustomModal() {
+            var modal = document.getElementById('custom-modal');
+            if (modal) modal.classList.add('opacity-0', 'pointer-events-none');
+        }
+
+        function copyRekening() {
+            var rekElem = document.getElementById('rekening-num');
+            if (rekElem) {
+                var rek = rekElem.innerText;
+                navigator.clipboard.writeText(rek);
+                var copyText = document.getElementById('copy-text');
+                if (copyText) copyText.innerText = "Tersalin!";
+                setTimeout(function() {
+                    if (copyText) copyText.innerText = "Salin Nomor Rekening";
+                }, 2000);
+                showCustomModal("Nomor rekening Bank Mandiri berhasil disalin!");
+            }
+        }
+
+        function submitRSVP(e) {
+            e.preventDefault();
+            var nameElem = document.getElementById('rsvp-name');
+            var statusElem = document.getElementById('rsvp-status');
+            var msgElem = document.getElementById('rsvp-message');
+
+            var name = nameElem ? nameElem.value : '';
+            var status = statusElem ? statusElem.value : 'Hadir';
+            var msg = msgElem ? msgElem.value : '';
+
+            var list = document.getElementById('wishes-list');
+            if (list) {
+                var newWish = document.createElement('div');
+                newWish.className = "bg-stone-50 p-3 rounded-xl border border-stone-200";
+                
+                var statusColor = status === 'Hadir' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700';
+
+                newWish.innerHTML = '<p class="font-bold text-xs text-stone-900">' + name + ' <span class="font-normal text-[10px] ' + statusColor + ' px-2 py-0.5 rounded-full ml-2">' + status + '</span></p>' +
+                    '<p class="text-xs text-stone-600 italic mt-1">"' + msg + '"</p>';
+
+                list.prepend(newWish);
+            }
+
+            if (msgElem) msgElem.value = '';
+            showCustomModal("Terima kasih atas konfirmasi dan doa restu Anda!");
+        }
+    </script>
+</body>
+</html>
