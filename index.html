@@ -12,14 +12,14 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .font-serif { font-family: 'Playfair Display', serif; }
         
-        /* Modern Javanese Pattern Background */
+        /* Modern Javanese Pattern Background with Warm Ivory Tone */
         .javanese-pattern {
-            background-color: #FAF7F2;
+            background-color: #FAF6EF;
             background-image: 
-                radial-gradient(#c5a059 0.75px, transparent 0.75px), 
-                radial-gradient(#c5a059 0.75px, #FAF7F2 0.75px);
-            background-size: 30px 30px;
-            background-position: 0 0, 15px 15px;
+                radial-gradient(#b8860b 0.6px, transparent 0.6px), 
+                radial-gradient(#b8860b 0.6px, #FAF6EF 0.6px);
+            background-size: 28px 28px;
+            background-position: 0 0, 14px 14px;
         }
 
         /* Gold Gradient Text */
@@ -60,9 +60,14 @@
         </div>
 
         <div class="relative z-10 flex flex-col items-center max-w-md mx-auto">
-            <!-- Gunungan / Ornamental Symbol -->
-            <div class="w-12 h-12 mb-3 text-amber-400 opacity-80">
-                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 19h20L12 2zm0 3.8L18.5 17H5.5L12 5.8z"/></svg>
+            <!-- Ornamen Gunungan Jawa (SVG vector) -->
+            <div class="w-16 h-20 mb-2 opacity-90 text-amber-400">
+                <svg viewBox="0 0 100 140" fill="currentColor">
+                    <path d="M50,5 L85,60 L75,65 L80,90 L68,95 L72,130 L50,135 L28,130 L32,95 L20,90 L25,65 L15,60 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+                    <path d="M50,15 L75,60 L68,63 L72,85 L62,88 L65,120 L50,123 L35,120 L38,88 L28,85 L32,63 L25,60 Z" fill="currentColor" opacity="0.2"/>
+                    <circle cx="50" cy="70" r="10" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M50,15 L50,123" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
             </div>
             
             <p class="text-[11px] tracking-[0.3em] uppercase text-amber-300/90 mb-2 font-medium">Om Swastyastu</p>
@@ -92,40 +97,44 @@
         
         <!-- Hero Section & Couple Profile -->
         <header class="min-h-screen flex flex-col items-center justify-center text-center p-6 relative">
-            <div class="w-16 h-16 text-amber-700/20 mb-4">
-                <svg viewBox="0 0 100 100" fill="currentColor"><circle cx="50" cy="50" r="45" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            <!-- Background Ornamen Gunungan Siluet di Tengah Latar -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.04]">
+                <svg class="w-96 h-[500px] text-amber-900" viewBox="0 0 100 140" fill="currentColor">
+                    <path d="M50,5 L85,60 L75,65 L80,90 L68,95 L72,130 L50,135 L28,130 L32,95 L20,90 L25,65 L15,60 Z"/>
+                </svg>
             </div>
-            <p class="tracking-[0.25em] text-xs uppercase text-amber-800 font-bold mb-3">Om Swastyastu</p>
+
+            <p class="tracking-[0.25em] text-xs uppercase text-amber-900 font-bold mb-3">Om Swastyastu</p>
             <p class="text-sm text-stone-700 max-w-xl mx-auto mb-12 leading-relaxed px-4">
                 Atas Asung Kertha Wara Nugraha Ida Sang Hyang Widhi Wasa / Tuhan Yang Maha Esa, kami bermaksud menyelenggarakan Upacara Wiwaha Samskara (Pernikahan) serta Resepsi Pernikahan putra-putri kami:
             </p>
             
             <div class="grid md:grid-cols-2 gap-10 max-w-3xl w-full items-center">
                 <!-- Foto Mempelai Pria -->
-                <div class="flex flex-col items-center bg-white/60 p-6 rounded-3xl border border-amber-900/10 shadow-sm backdrop-blur-sm">
-                    <div class="w-36 h-36 md:w-44 md:h-44 mx-auto mb-4 rounded-full overflow-hidden border-2 border-amber-600/60 p-1.5 shadow-md bg-white">
+                <div class="flex flex-col items-center bg-white/70 p-6 rounded-3xl border border-amber-800/20 shadow-md backdrop-blur-sm relative">
+                    <div class="w-36 h-36 md:w-44 md:h-44 mx-auto mb-4 rounded-full overflow-hidden border-2 border-amber-600/70 p-1.5 shadow-md bg-white">
                         <img src="pria.jpg" alt="Krisna" class="w-full h-full object-cover rounded-full">
                     </div>
                     <h2 class="font-serif text-2xl md:text-3xl text-stone-900 font-bold mb-1">Ns. I Putu Krisna Widya Nugraha, S.Kep</h2>
-                    <p class="text-[11px] text-amber-800 uppercase tracking-widest mb-2 font-semibold">Putra Pertama dari</p>
+                    <p class="text-[11px] text-amber-900 uppercase tracking-widest mb-2 font-bold">Putra Pertama dari</p>
                     <p class="text-stone-600 text-xs leading-relaxed">Bapak I Made Ardana<br>& Ibu Ari Trisusanti</p>
                 </div>
 
                 <!-- Foto Mempelai Wanita -->
-                <div class="flex flex-col items-center bg-white/60 p-6 rounded-3xl border border-amber-900/10 shadow-sm backdrop-blur-sm">
-                    <div class="w-36 h-36 md:w-44 md:h-44 mx-auto mb-4 rounded-full overflow-hidden border-2 border-amber-600/60 p-1.5 shadow-md bg-white">
+                <div class="flex flex-col items-center bg-white/70 p-6 rounded-3xl border border-amber-800/20 shadow-md backdrop-blur-sm relative">
+                    <div class="w-36 h-36 md:w-44 md:h-44 mx-auto mb-4 rounded-full overflow-hidden border-2 border-amber-600/70 p-1.5 shadow-md bg-white">
                         <img src="wanita.jpg" alt="Sinta" class="w-full h-full object-cover rounded-full">
                     </div>
                     <h2 class="font-serif text-2xl md:text-3xl text-stone-900 font-bold mb-1">Sinta Dewi Wulandari, S.Pd</h2>
-                    <p class="text-[11px] text-amber-800 uppercase tracking-widest mb-2 font-semibold">Putri Kedua dari</p>
+                    <p class="text-[11px] text-amber-900 uppercase tracking-widest mb-2 font-bold">Putri Kedua dari</p>
                     <p class="text-stone-600 text-xs leading-relaxed">Bapak Supadi<br>& Ibu Lasmi</p>
                 </div>
             </div>
         </header>
 
         <!-- Rigveda Quote Section -->
-        <section class="py-12 px-6 max-w-2xl mx-auto text-center">
-            <div class="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-sm border border-amber-900/10 relative">
+        <section class="py-12 px-6 max-w-2xl mx-auto text-center relative">
+            <div class="bg-white/85 backdrop-blur-sm p-8 rounded-3xl shadow-sm border border-amber-800/20 relative">
                 <p class="font-serif italic text-stone-800 text-lg mb-4 leading-relaxed">
                     "Ihaiva stam mā vi yaustam,<br>
                     Visvām āyur vyasnutam.<br>
@@ -139,54 +148,80 @@
             </div>
         </section>
 
-        <!-- OUR LOVE STORY SECTION -->
+        <!-- OUR LOVE STORY SECTION DENGAN TEMPLATE GAMBAR -->
         <section class="py-16 px-6 max-w-3xl mx-auto">
-            <h2 class="font-serif text-3xl text-center mb-2 text-stone-900">Our Love Story</h2>
-            <div class="w-16 h-[2px] bg-amber-700 mx-auto mb-12"></div>
+            <div class="text-center mb-10">
+                <div class="w-8 h-8 mx-auto mb-1 text-amber-700 opacity-80">
+                    <svg viewBox="0 0 100 140" fill="currentColor"><path d="M50,5 L85,60 L75,65 L80,90 L68,95 L72,130 L50,135 L28,130 L32,95 L20,90 L25,65 L15,60 Z"/></svg>
+                </div>
+                <h2 class="font-serif text-3xl text-stone-900 font-bold">Our Love Story</h2>
+                <div class="w-16 h-[2px] bg-amber-700 mx-auto mt-2"></div>
+            </div>
 
-            <div class="relative border-l-2 border-amber-700/30 ml-4 md:ml-32 space-y-10">
+            <div class="relative border-l-2 border-amber-700/30 ml-4 md:ml-32 space-y-12">
                 <!-- Timeline Item 1 -->
                 <div class="relative pl-8">
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-600 border-4 border-[#FAF7F2]"></div>
-                    <span class="text-xs font-bold text-amber-800 tracking-wider uppercase">Tahun 2021</span>
-                    <h3 class="font-serif text-lg font-bold text-stone-900 mt-1 mb-2">Awal Pertemuan</h3>
-                    <p class="text-stone-600 text-xs leading-relaxed bg-white/70 p-4 rounded-2xl border border-amber-900/5 shadow-sm">
-                        Takdir mempertemukan kami pertama kali di masa perkuliahan. Dari sekadar tegur sapa sederhana, tumbuh komunikasi yang hangat dan saling melengkapi satu sama lain.
-                    </p>
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-700 border-4 border-[#FAF6EF]"></div>
+                    <span class="text-xs font-bold text-amber-900 tracking-wider uppercase bg-amber-100/80 px-2.5 py-0.5 rounded-full border border-amber-300">Tahun 2021</span>
+                    <h3 class="font-serif text-xl font-bold text-stone-900 mt-2 mb-3">Awal Pertemuan</h3>
+                    
+                    <div class="bg-white/85 p-4 rounded-2xl border border-amber-900/10 shadow-sm space-y-3">
+                        <!-- Template Foto Momen 1 (ls1.jpg atau g14.jpg sebagai fallback) -->
+                        <div class="aspect-video w-full rounded-xl overflow-hidden border border-stone-200 shadow-inner bg-stone-100">
+                            <img src="ls1.jpg" onerror="this.onerror=null; this.src='g14.jpg';" alt="Momen Pertemuan" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-stone-600 text-xs leading-relaxed">
+                            Takdir mempertemukan kami pertama kali di masa perkuliahan. Dari sekadar tegur sapa sederhana, tumbuh komunikasi yang hangat dan saling melengkapi satu sama lain.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Timeline Item 2 -->
                 <div class="relative pl-8">
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-600 border-4 border-[#FAF7F2]"></div>
-                    <span class="text-xs font-bold text-amber-800 tracking-wider uppercase">Tahun 2023</span>
-                    <h3 class="font-serif text-lg font-bold text-stone-900 mt-1 mb-2">Komitmen & Niat Suci</h3>
-                    <p class="text-stone-600 text-xs leading-relaxed bg-white/70 p-4 rounded-2xl border border-amber-900/5 shadow-sm">
-                        Setelah melewati perjalanan panjang bersama, kami memutuskan untuk melangkah ke jenjang yang lebih serius dengan restu dari kedua orang tua.
-                    </p>
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-700 border-4 border-[#FAF6EF]"></div>
+                    <span class="text-xs font-bold text-amber-900 tracking-wider uppercase bg-amber-100/80 px-2.5 py-0.5 rounded-full border border-amber-300">Tahun 2023</span>
+                    <h3 class="font-serif text-xl font-bold text-stone-900 mt-2 mb-3">Komitmen & Niat Suci</h3>
+                    
+                    <div class="bg-white/85 p-4 rounded-2xl border border-amber-900/10 shadow-sm space-y-3">
+                        <!-- Template Foto Momen 2 (ls2.jpg atau g25.jpg sebagai fallback) -->
+                        <div class="aspect-video w-full rounded-xl overflow-hidden border border-stone-200 shadow-inner bg-stone-100">
+                            <img src="ls2.jpg" onerror="this.onerror=null; this.src='g25.jpg';" alt="Momen Komitmen" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-stone-600 text-xs leading-relaxed">
+                            Setelah melewati perjalanan panjang bersama, kami memutuskan untuk melangkah ke jenjang yang lebih serius dengan restu penuh dari kedua belah pihak keluarga.
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Timeline Item 3 -->
                 <div class="relative pl-8">
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-600 border-4 border-[#FAF7F2]"></div>
-                    <span class="text-xs font-bold text-amber-800 tracking-wider uppercase">Tahun 2026</span>
-                    <h3 class="font-serif text-lg font-bold text-stone-900 mt-1 mb-2">Menuju Bahtera Rumah Tangga</h3>
-                    <p class="text-stone-600 text-xs leading-relaxed bg-white/70 p-4 rounded-2xl border border-amber-900/5 shadow-sm">
-                        Kini, dengan penuh rasa syukur dan kebahagiaan, kami siap mengikat janji suci pernikahan untuk mengarungi kehidupan bersama selamanya.
-                    </p>
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-700 border-4 border-[#FAF6EF]"></div>
+                    <span class="text-xs font-bold text-amber-900 tracking-wider uppercase bg-amber-100/80 px-2.5 py-0.5 rounded-full border border-amber-300">Tahun 2026</span>
+                    <h3 class="font-serif text-xl font-bold text-stone-900 mt-2 mb-3">Menuju Bahtera Rumah Tangga</h3>
+                    
+                    <div class="bg-white/85 p-4 rounded-2xl border border-amber-900/10 shadow-sm space-y-3">
+                        <!-- Template Foto Momen 3 (ls3.jpg atau g4.jpg sebagai fallback) -->
+                        <div class="aspect-video w-full rounded-xl overflow-hidden border border-stone-200 shadow-inner bg-stone-100">
+                            <img src="ls3.jpg" onerror="this.onerror=null; this.src='g4.jpg';" alt="Menuju Pernikahan" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-stone-600 text-xs leading-relaxed">
+                            Kini, dengan penuh rasa syukur dan kebahagiaan, kami siap mengikat janji suci pernikahan untuk mengarungi kehidupan bersama selamanya.
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Rangkaian Acara Section -->
         <section class="py-12 px-6 max-w-5xl mx-auto">
-            <h2 class="font-serif text-3xl text-center mb-2 text-stone-900">Rangkaian Acara</h2>
+            <h2 class="font-serif text-3xl text-center mb-2 text-stone-900 font-bold">Rangkaian Acara</h2>
             <div class="w-16 h-[2px] bg-amber-700 mx-auto mb-10"></div>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Acara 1 -->
-                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-3xl shadow-sm border border-stone-200 flex flex-col justify-between hover:shadow-md transition">
+                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-3xl shadow-sm border border-amber-800/20 flex flex-col justify-between hover:shadow-md transition">
                     <div>
-                        <span class="inline-block bg-amber-100 text-amber-900 text-xs px-3 py-1 rounded-full font-medium mb-3">Acara 1</span>
+                        <span class="inline-block bg-amber-100 text-amber-900 text-xs px-3 py-1 rounded-full font-bold mb-3 border border-amber-200">Acara 1</span>
                         <h3 class="font-serif text-xl font-bold mb-2 text-stone-900">Wiwaha Samskara</h3>
                         <p class="text-stone-700 text-xs font-semibold mb-1">Minggu, 22 November 2026</p>
                         <p class="text-stone-500 text-xs mb-4">Pukul 13.00 – 16.00 WIB</p>
@@ -201,9 +236,9 @@
                 </div>
 
                 <!-- Acara 2 -->
-                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-3xl shadow-sm border border-stone-200 flex flex-col justify-between hover:shadow-md transition">
+                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-3xl shadow-sm border border-amber-800/20 flex flex-col justify-between hover:shadow-md transition">
                     <div>
-                        <span class="inline-block bg-amber-100 text-amber-900 text-xs px-3 py-1 rounded-full font-medium mb-3">Acara 2</span>
+                        <span class="inline-block bg-amber-100 text-amber-900 text-xs px-3 py-1 rounded-full font-bold mb-3 border border-amber-200">Acara 2</span>
                         <h3 class="font-serif text-xl font-bold mb-2 text-stone-900">Resepsi Pernikahan</h3>
                         <p class="text-stone-700 text-xs font-semibold mb-1">Senin, 23 November 2026</p>
                         <p class="text-stone-500 text-xs mb-4">Pukul 08.00 WIB – Selesai</p>
@@ -218,9 +253,9 @@
                 </div>
 
                 <!-- Acara 3 -->
-                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-3xl shadow-sm border border-stone-200 flex flex-col justify-between hover:shadow-md transition">
+                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-3xl shadow-sm border border-amber-800/20 flex flex-col justify-between hover:shadow-md transition">
                     <div>
-                        <span class="inline-block bg-amber-100 text-amber-900 text-xs px-3 py-1 rounded-full font-medium mb-3">Acara 3</span>
+                        <span class="inline-block bg-amber-100 text-amber-900 text-xs px-3 py-1 rounded-full font-bold mb-3 border border-amber-200">Acara 3</span>
                         <h3 class="font-serif text-xl font-bold mb-2 text-stone-900">Ngunduh Mantu</h3>
                         <p class="text-stone-700 text-xs font-semibold mb-1">Sabtu, 28 November 2026</p>
                         <p class="text-stone-500 text-xs mb-4">Pukul 13.00 – 17.00 WIB</p>
@@ -238,7 +273,7 @@
 
         <!-- Galeri Foto Section -->
         <section class="py-16 px-6 max-w-4xl mx-auto">
-            <h2 class="font-serif text-3xl text-center mb-2 text-stone-900">Galeri Foto</h2>
+            <h2 class="font-serif text-3xl text-center mb-2 text-stone-900 font-bold">Galeri Foto</h2>
             <div class="w-16 h-[2px] bg-amber-700 mx-auto mb-10"></div>
             
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -265,8 +300,8 @@
 
         <!-- RSVP & UCAPAN DOA SECTION -->
         <section class="py-16 px-6 max-w-2xl mx-auto">
-            <div class="bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-sm border border-amber-900/10">
-                <h2 class="font-serif text-3xl text-center mb-2 text-stone-900">Konfirmasi Kehadiran</h2>
+            <div class="bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-sm border border-amber-800/20">
+                <h2 class="font-serif text-3xl text-center mb-2 text-stone-900 font-bold">Konfirmasi Kehadiran</h2>
                 <p class="text-center text-stone-600 text-xs mb-8">Mohon konfirmasi kehadiran serta doa restu Bapak/Ibu/Saudara/i</p>
 
                 <form id="rsvp-form" onsubmit="submitRSVP(event)" class="space-y-4">
@@ -309,9 +344,9 @@
             </div>
         </section>
 
-        <!-- DIGITAL GIFT / AMPLOP DIGITAL SECTION -->
+        <!-- DIGITAL GIFT SECTION -->
         <section class="py-16 px-6 max-w-xl mx-auto text-center">
-            <div class="bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-sm border border-amber-900/10">
+            <div class="bg-white/90 backdrop-blur-md p-8 rounded-3xl shadow-sm border border-amber-800/20">
                 <div class="w-12 h-12 mx-auto mb-3 text-amber-700">
                     <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H4.5a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21"/></svg>
                 </div>
@@ -326,7 +361,7 @@
                     <p id="rekening-num" class="font-mono text-xl tracking-wider font-bold mb-1 text-white">1570007413926</p>
                     <p class="text-xs text-stone-300 font-medium mb-4">a.n. I Putu Krisna Widya</p>
                     
-                    <button onclick="copyRekening()" class="bg-amber-200 text-stone-950 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-amber-300 transition flex items-center gap-2">
+                    <button onclick="copyRekening()" class="bg-amber-200 text-stone-950 px-4 py-2 rounded-xl text-xs font-semibold hover:bg-amber-300 transition flex items-center gap-2 cursor-pointer">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
                         <span id="copy-text">Salin Nomor Rekening</span>
                     </button>
@@ -412,7 +447,7 @@
             }, 2000);
         }
 
-        // Fitur Kirim RSVP (Interaktif)
+        // Fitur Kirim RSVP
         function submitRSVP(e) {
             e.preventDefault();
             const name = document.getElementById('rsvp-name').value;
@@ -421,7 +456,7 @@
 
             const list = document.getElementById('wishes-list');
             const newWish = document.createElement('div');
-            newWish.className = "bg-stone-50 p-3 rounded-xl border border-stone-200 animate-fade-in";
+            newWish.className = "bg-stone-50 p-3 rounded-xl border border-stone-200";
             
             let statusColor = status === 'Hadir' ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700';
 
